@@ -1,5 +1,3 @@
----
-
 # 🚀 Smart Session Dapp
 
 ### Reown AppKit + Wagmi + Viem + Base Mainnet
@@ -25,7 +23,6 @@ The project includes:
 
 Designed for builders participating in **WalletConnect Rewards**, **Talent Protocol**, and on-chain hackathons.
 
----
 
 # 🧠 Overview
 
@@ -43,7 +40,6 @@ A secure backend that prepares & signs Smart Session calls and interacts with Wa
 
 A React/Vite/Wagmi dApp with Reown AppKit for granting sessions and executing on-chain actions.
 
----
 
 # 📡 Live Contract
 
@@ -55,7 +51,6 @@ A React/Vite/Wagmi dApp with Reown AppKit for granting sessions and executing on
 
 Verified on BaseScan.
 
----
 
 # 🧱 Architecture
 
@@ -83,8 +78,6 @@ smart-session-dapp/
 │
 └── vercel.json          # Frontend deployment config
 ```
-
----
 
 # ✨ Features
 
@@ -123,7 +116,6 @@ smart-session-dapp/
 * Contribution guidelines
 * MIT license
 
----
 
 # 🛠 Getting Started
 
@@ -165,7 +157,6 @@ Backend runs on:
 http://localhost:8787
 ```
 
----
 
 # 🔧 Deploying the Contract
 
@@ -181,7 +172,6 @@ To verify:
 npx hardhat verify --network base <DEPLOYED_ADDRESS>
 ```
 
----
 
 # 🚀 Deploying the Frontend
 
@@ -196,7 +186,6 @@ Vercel is recommended:
 
 `vercel.json` is already configured.
 
----
 
 # 📘 API Endpoints (Backend)
 
@@ -216,7 +205,6 @@ Body:
 
 Executes Smart Session → contract call.
 
----
 
 # 🤝 Contributions Welcome
 
@@ -231,7 +219,6 @@ This project actively welcomes:
 
 All contributors appear on **Talent Protocol Leaderboards**.
 
----
 
 # 🔒 Security
 
@@ -239,14 +226,12 @@ See `SECURITY.md`.
 
 Smart sessions can delegate powerful capabilities — always audit scopes & backend execution.
 
----
 
 # 📄 License
 
 MIT License.
 See `LICENSE`.
 
----
 
 # 🙌 Credits
 
@@ -259,7 +244,6 @@ Built using:
 * **Hardhat**
 * **TypeScript**
 
----
 
 # 🪪 Author
 
@@ -267,7 +251,6 @@ Built using:
 
 ENS: `cryptoflops.base.eth` | `psyhodivka.eth`
 
----
 
 # 🎉 Final Note
 
