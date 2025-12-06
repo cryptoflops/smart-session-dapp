@@ -1,263 +1,216 @@
 # 🚀 Smart Session Dapp
 
-### Reown AppKit + Wagmi + Viem + Base Mainnet
-
 <p align="center">
   <img src="https://img.shields.io/badge/chain-base-blue.svg" />
-  <img src="https://img.shields/badge/appkit-reown-orange.svg" />
+  <img src="https://img.shields.io/badge/chain-optimism-red.svg" />
+  <img src="https://img.shields.io/badge/chain-celo-green.svg" />
+  <img src="https://img.shields.io/badge/appkit-reown-orange.svg" />
   <img src="https://img.shields.io/badge/smart--sessions-enabled-brightgreen.svg" />
-  <img src="https://img.shields.io/github/actions/workflow/status/cryptoflops/smart-session-dapp/ci.yml?label=build" />
-  <img src="https://img.shields.io/github/last-commit/cryptoflops/smart-session-dapp" />
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" />
+  <img src="https://img.shields.io/github/license/cryptoflops/smart-session-dapp" />
 </p>
 
-A production-ready example demonstrating **WalletConnect Smart Sessions** using **Reown AppKit**, fully integrated with a React + Wagmi frontend and an Express backend executor.
-The project includes:
+<p align="center">
+  <strong>Secure, temporary, revocable on-chain session permissions for Web3 applications.</strong>
+</p>
 
-* A deployed & verified Base Mainnet contract
-* Full frontend dApp with session granting UI
-* Smart Session backend executor
-* End-to-end Reown AppKit + Wagmi integration
-* Hardhat deployment + verification workflows
-* GitHub CI + issue templates + open-source docs
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#contributing">Contributing</a>
+</p>
 
-Designed for builders participating in **WalletConnect Rewards**, **Talent Protocol**, and on-chain hackathons.
+---
 
+## Overview
 
-# 🧠 Overview
+Smart Session Dapp enables users to grant **temporary, granular permissions** to decentralized applications without signing every transaction. Built with **Reown AppKit** and **WalletConnect Smart Sessions**, this production-ready dApp demonstrates the future of frictionless Web3 UX.
 
-This repository provides a complete working implementation of:
+### The Problem
 
-### 🔹 Smart Session Contract
+Traditional Web3 interactions require users to sign every transaction, creating:
+- Constant interruptions during gameplay or DeFi interactions
+- Poor user experience compared to Web2 applications
+- Security fatigue leading to blind signing
 
-A minimal, safe smart contract deployed to **Base Mainnet** to demonstrate session calls.
+### The Solution
 
-### 🔹 Smart Session Backend
+Smart Sessions allow users to:
+- Grant temporary permissions to specific contracts and functions
+- Set automatic expiration times (1 hour, 1 day, 7 days)
+- Revoke access instantly at any time
+- Maintain full custody and control
 
-A secure backend that prepares & signs Smart Session calls and interacts with WalletConnect RPC methods.
+---
 
-### 🔹 Smart Session Frontend
+## Features
 
-A React/Vite/Wagmi dApp with Reown AppKit for granting sessions and executing on-chain actions.
+### 🔐 Granular Permission Control
+Define exactly what an app can do—limit by contract address, function selector, and value.
 
+### ⏱️ Auto-Expiry Sessions
+Sessions expire automatically. No forgotten approvals, no lingering risks.
 
-# 📡 Live Contract
+### 🛡️ Instant Revocation
+Kill any session instantly from the dashboard. You are always in control.
 
-**SmartSessionTarget** deployed & verified on Base Mainnet:
+### 🌐 Multi-Chain Support
+Deploy and manage sessions across Base, Optimism, and Celo.
 
-```
-0x1363FfBE6e5280c2a310BE7b50Eaad4d3Bc57644
-```
+### 🎨 Premium UI/UX
+Modern glassmorphism design with real-time timers, animations, and toast notifications.
 
-Verified on BaseScan.
+---
 
-
-# 🧱 Architecture
+## Architecture
 
 ```
 smart-session-dapp/
-│
-├── src/                 # React + Wagmi + AppKit frontend
-│   ├── components/      # Session UI components
-│   ├── lib/             # wagmi config, appkit config, contracts
-│   └── main.tsx         # App bootstrap
-│
-├── server/              # Smart Session executor backend
-│   ├── index.ts         # Express app
-│   ├── prepareCalls.ts  # Prepares Smart Session RPC calls
-│   ├── signAndSend.ts   # Executes signed Smart Session calls
-│   └── config.ts        # RPC config, project ID, private key
-│
-├── contracts/           # Solidity contracts
-│   └── SmartSessionTarget.sol
-│
-├── scripts/             # Hardhat deployment scripts
-│   └── deploy.cjs
-│
-├── .github/             # CI, issue templates, PR templates
-│
-└── vercel.json          # Frontend deployment config
+├── src/                    # React + Wagmi + AppKit frontend
+│   ├── components/         # UI components
+│   │   ├── ui/            # Design system (Button, Card, Modal, Timer, Toast)
+│   │   ├── layout/        # Layout, Navbar, Sidebar
+│   │   ├── create-session/# Session creation wizard
+│   │   └── dashboard/     # Session list and management
+│   ├── hooks/             # Custom React hooks (useSession)
+│   └── lib/               # Config (wagmi, appkit, contracts)
+├── server/                # Smart Session executor backend
+├── contracts/             # Solidity contracts
+└── scripts/               # Hardhat deployment scripts
 ```
 
-# ✨ Features
+---
 
-### 🔹 Reown AppKit Integration
+## Live Contracts
 
-* Wallet connection
-* Account abstraction
-* Session management
-* Wallet-aware UX
+| Network   | Address                                      | Explorer |
+|-----------|----------------------------------------------|----------|
+| Base      | `0x1363FfBE6e5280c2a310BE7b50Eaad4d3Bc57644` | [View](https://basescan.org/address/0x1363FfBE6e5280c2a310BE7b50Eaad4d3Bc57644) |
+| Optimism  | `0xC19c0602d25e26f496037c42E6A103074d2CBd85` | [View](https://optimistic.etherscan.io/address/0xC19c0602d25e26f496037c42E6A103074d2CBd85) |
+| Celo      | `0xC19c0602d25e26f496037c42E6A103074d2CBd85` | [View](https://celoscan.io/address/0xC19c0602d25e26f496037c42E6A103074d2CBd85) |
 
-### 🔹 Smart Session Backend
+---
 
-* Prepares session calls
-* Uses WalletConnect RPC:
+## Quick Start
 
-  * `wallet_prepareCalls`
-  * `wallet_sendCalls`
-* Signs with backend key
+### Prerequisites
 
-### 🔹 Smart Session Frontend
+- Node.js 18+
+- npm or yarn
+- A [Reown Cloud](https://cloud.reown.io/) project ID
 
-* AppKit session UI
-* Contract interaction panel
-* Session-aware UX
-
-### 🔹 Hardhat + Viem
-
-* Clean deploy script
-* Base Mainnet deployment
-* Automated contract verification
-
-### 🔹 Open-Source Ready
-
-* CI pipeline
-* Issue templates
-* Contribution guidelines
-* MIT license
-
-
-# 🛠 Getting Started
-
-### 1. Install dependencies
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/cryptoflops/smart-session-dapp.git
+cd smart-session-dapp
+
+# Install dependencies
 npm install
-```
 
-### 2. Copy environment file
-
-```bash
+# Copy environment variables
 cp .env.example .env
 ```
 
-Fill in:
+### Configuration
 
-```
-APPLICATION_PRIVATE_KEY=
-VITE_REOWN_PROJECT_ID=
+Edit `.env` with your credentials:
+
+```env
+VITE_REOWN_PROJECT_ID=your_project_id
 VITE_SMART_SESSION_TARGET_ADDRESS=0x1363FfBE6e5280c2a310BE7b50Eaad4d3Bc57644
 ```
 
-### 3. Run frontend
+### Development
 
 ```bash
+# Start frontend
 npm run dev
-```
 
-### 4. Run backend
-
-```bash
+# Start backend (separate terminal)
 npm run dev:server
 ```
 
-Backend runs on:
+Open [http://localhost:5173](http://localhost:5173)
 
-```
-http://localhost:8787
-```
+---
 
+## Deployment
 
-# 🔧 Deploying the Contract
+### Frontend (Vercel)
 
-To deploy on Base:
+1. Push to GitHub
+2. Import repository in [Vercel](https://vercel.com)
+3. Add environment variables:
+   - `VITE_REOWN_PROJECT_ID`
+   - `VITE_SMART_SESSION_TARGET_ADDRESS`
+4. Deploy
+
+### Smart Contract
 
 ```bash
-npx hardhat run scripts/deploy.cjs --network base
-```
+# Compile
+npm run compile
 
-To verify:
+# Deploy to Base
+npm run deploy
 
-```bash
+# Verify
 npx hardhat verify --network base <DEPLOYED_ADDRESS>
 ```
 
+---
 
-# 🚀 Deploying the Frontend
+## Tech Stack
 
-Vercel is recommended:
+| Category | Technology |
+|----------|------------|
+| Frontend | React, Vite, TypeScript |
+| Styling | Tailwind CSS, Glassmorphism |
+| Web3 | wagmi, viem, Reown AppKit |
+| Contracts | Solidity, Hardhat |
+| Backend | Express.js, TypeScript |
 
-1. Push repo to GitHub
-2. Import repo in Vercel
-3. Add env vars:
+---
 
-   * `VITE_REOWN_PROJECT_ID`
-   * `VITE_SMART_SESSION_TARGET_ADDRESS`
+## Security
 
-`vercel.json` is already configured.
+Smart Sessions delegate capabilities to backend signers. Always:
+- Audit session scopes and permissions
+- Use short expiration times
+- Monitor session activity
+- Revoke unused sessions
 
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
-# 📘 API Endpoints (Backend)
+---
 
-### **POST /execute**
+## Contributing
 
-Body:
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-```json
-{
-  "userAddress": "0x...",
-  "chainId": 8453,
-  "contractAddress": "0x...",
-  "functionName": "store",
-  "args": ["77"]
-}
-```
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
 
-Executes Smart Session → contract call.
+---
 
+## License
 
-# 🤝 Contributions Welcome
+MIT License. See [LICENSE](LICENSE) for details.
 
-This project actively welcomes:
+---
 
-* WalletConnect / Reown AppKit enhancements
-* Smart Session utilities
-* Contract examples
-* Bug fixes
-* PR improvements
-* Ecosystem integrations
+## Author
 
-All contributors appear on **Talent Protocol Leaderboards**.
+**cryptoflops.base.eth** | **psyhodivka.eth**
 
+Address: `0x0Cf485F4c6b2a6087B4D5d4A590cAe8d22D7FA9a`
 
-# 🔒 Security
+---
 
-See `SECURITY.md`.
-
-Smart sessions can delegate powerful capabilities — always audit scopes & backend execution.
-
-
-# 📄 License
-
-MIT License.
-See `LICENSE`.
-
-
-# 🙌 Credits
-
-Built using:
-
-* **Reown AppKit (WalletConnect)**
-* **Wagmi v2**
-* **Viem**
-* **Base Mainnet**
-* **Hardhat**
-* **TypeScript**
-
-
-# 🪪 Author
-
-**0x0Cf485F4c6b2a6087B4D5d4A590cAe8d22D7FA9a**
-
-ENS: `cryptoflops.base.eth` | `psyhodivka.eth`
-
-
-# 🎉 Final Note
-
-This repository is structured, optimized, and documented to score highly across:
-
-* WalletConnect Builders Program
-* Talent Protocol Builder Rewards
-* GitHub ecosystem visibility
-* Base ecosystem grant evaluations
-* Open-source credibility
+<p align="center">
+  Built with ❤️ using <a href="https://reown.com">Reown AppKit</a> and <a href="https://base.org">Base</a>
+</p>
